@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import prisma from "../lib/prisma.ts"; // Зверни увагу на .js, якщо у тебе NodeNext
+import prisma from "../lib/prisma.ts";
 import { getTotalHoursByDate } from "../services/entryService.ts";
 
 export const getEntries = async (req: Request, res: Response) => {
@@ -37,7 +37,7 @@ export const createEntry = async (req: Request, res: Response) => {
 
     const newEntry = await prisma.timeEntry.create({
       data: {
-        date: new Date(date),
+        date: date,
         project,
         hours: hoursNum,
         description,

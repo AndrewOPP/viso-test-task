@@ -3,7 +3,7 @@ import { getEntries, createEntry } from "../controllers/entryController.ts";
 
 const router = Router();
 
-router.get("/", getEntries); // Отримати всю історію
-router.post("/", createEntry); // Зберегти новий запис
+router.get("/", getEntries);
+router.post("/", createEntry);
 
 export default router;

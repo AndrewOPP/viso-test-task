@@ -1,0 +1,53 @@
+@reference "../../../app/globals.css";
+
+.container {
+  @apply space-y-6;
+}
+
+.grandTotalCard {
+  @apply bg-blue-600 text-white p-5 rounded-2xl mb-8 flex justify-between items-center shadow-lg shadow-blue-200;
+}
+
+.grandTotalLabel {
+  @apply text-sm uppercase tracking-widest font-bold opacity-80;
+}
+
+.grandTotalValue {
+  @apply text-3xl font-black;
+}
+
+.dayBlock {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden;
+}
+
+.dayHeader {
+  @apply bg-gray-50 px-6 py-3 flex justify-between items-center border-b border-gray-100;
+}
+
+.dayTotalBadge {
+  @apply bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold;
+}
+
+.entryRow {
+  @apply p-5 flex justify-between items-start border-b last:border-0 border-gray-50 hover:bg-gray-50 transition-colors;
+}
+
+.projectTitle {
+  @apply font-bold text-gray-800 text-sm;
+}
+
+.description {
+  @apply text-gray-500 text-xs mt-1 leading-relaxed;
+}
+
+.hours {
+  @apply font-mono font-bold text-blue-600 text-lg ml-4;
+}
+
+.emptyEntries {
+  @apply text-center py-20 text-gray-400 bg-white rounded-2xl border-dashed border-2;
+}
+
+.date {
+  @apply font-bold text-gray-600;
+}

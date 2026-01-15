@@ -15,7 +15,7 @@ datasource db {
 
 model TimeEntry {
   id          Int      @id @default(autoincrement())
-  date        DateTime 
+  date        String 
   project     String   
   hours       Float    
   description String   

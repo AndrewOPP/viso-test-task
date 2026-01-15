@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler", // Це дозволить не писати розширення взагалі
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
-    "allowImportingTsExtensions": true, // Дозволяє .ts в імпортах
-    "noEmit": true, // Оскільки ми запускаємо через ts-node
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
     "skipLibCheck": true
   }

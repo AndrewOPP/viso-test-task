@@ -11,9 +11,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Використовуємо маршрути
 app.use("/entries", entryRoutes);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Сервер працює на http://localhost:${PORT}`);
+  console.log(`🚀 Server is on http://localhost:${PORT}`);
 });

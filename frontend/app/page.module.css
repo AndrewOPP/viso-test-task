@@ -1,0 +1,55 @@
+@reference "./globals.css";
+
+.main {
+  @apply min-h-screen bg-gray-50 py-12 px-4 font-sans;
+}
+
+.container {
+  @apply max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+.formColumn {
+  @apply lg:col-span-1;
+}
+
+.historyColumn {
+  @apply lg:col-span-2;
+}
+
+.headerRow {
+  @apply flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4;
+}
+
+.title {
+  @apply text-3xl font-black text-gray-900 tracking-tight;
+}
+
+.filterBar {
+  @apply flex items-center gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-100 text-sm;
+}
+
+.dateInput {
+  @apply outline-none p-1 text-gray-600 cursor-pointer bg-transparent;
+}
+
+.clearBtn {
+  @apply ml-2 text-red-400 hover:text-red-600 font-bold px-2 transition-colors;
+}
+
+.loaderContainer {
+  @apply flex flex-col items-center justify-center py-20 text-gray-400 gap-4;
+}
+
+.spinner {
+  @apply w-10 h-10 border-4 border-blue-100 border-t-blue-600 rounded-full;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

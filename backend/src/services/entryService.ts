@@ -1,24 +1,17 @@
 import prisma from "../lib/prisma.ts";
+import pkg from "@prisma/client";
 
-export const getTotalHoursByDate = async (
-  date: string | Date
-): Promise<number> => {
-  const entryDate = new Date(date);
+import type { TimeEntry } from "@prisma/client";
 
-  const startOfDay = new Date(entryDate);
-  startOfDay.setHours(0, 0, 0, 0);
-
-  const endOfDay = new Date(entryDate);
-  endOfDay.setHours(23, 59, 59, 999);
-
-  const dayEntries = await prisma.timeEntry.findMany({
+export const getTotalHoursByDate = async (date: string): Promise<number> => {
+  const dayEntries: TimeEntry[] = await prisma.timeEntry.findMany({
     where: {
-      date: {
-        gte: startOfDay,
-        lte: endOfDay,
-      },
+      date: date,
     },
   });
 
-  return dayEntries.reduce((sum, entry) => sum + entry.hours, 0);
+  return dayEntries.reduce(
+    (sum: number, entry: TimeEntry) => sum + entry.hours,
+    0
+  );
 };

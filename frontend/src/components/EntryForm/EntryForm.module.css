@@ -1,0 +1,44 @@
+@reference "../../../app/globals.css";
+
+.card {
+  @apply bg-white p-6 rounded-2xl shadow-md border border-gray-100;
+}
+
+.title {
+  @apply text-xl font-bold mb-6 text-gray-800;
+}
+
+.label {
+  @apply block text-sm font-semibold text-gray-700 mb-1.5;
+}
+
+.input {
+  @apply w-full p-2.5 border rounded-lg outline-none transition-all shadow-sm bg-white text-gray-900;
+  @apply border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.inputError {
+  @apply border-red-500 ring-1 ring-red-500;
+}
+
+.errorSlot {
+  @apply h-6 mt-1 mb-2 flex items-center;
+}
+
+.errorText {
+  @apply text-red-500 text-xs font-medium flex items-center gap-1;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.submitBtn {
+  @apply w-full bg-blue-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-200/50;
+  transition: background-color 0.2s ease, transform 0.1s ease-out;
+  @apply hover:bg-blue-700 active:scale-[0.97];
+}
+
+select.input {
+  @apply appearance-none pr-10;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  @apply bg-no-repeat bg-[position:right_0.75rem_center] bg-[length:1rem];
+}
