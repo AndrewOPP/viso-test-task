@@ -7,7 +7,6 @@ export const getEntries = async (req: Request, res: Response) => {
     const entries = await prisma.timeEntry.findMany({
       orderBy: { date: "desc" },
     });
-    console.log(entries);
     res.json(entries);
   } catch (error) {
     res.status(500).json({ error: "Помилка при отриманні даних" });
