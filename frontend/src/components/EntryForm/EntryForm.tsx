@@ -16,9 +16,9 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
   const [error, setError] = useState<string>("");
 
   const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
+    event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    e.preventDefault();
+    event.preventDefault();
     setError("");
 
     if (!values.hours || !values.description) {
@@ -71,17 +71,21 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
           max="9999-12-31"
           className={s.input}
           value={values.date}
-          onChange={(e) => setValues({ ...values, date: e.target.value })}
+          onChange={(event) =>
+            setValues({ ...values, date: event.target.value })
+          }
         />
 
         <select
           className={s.input}
           value={values.project}
-          onChange={(e) => setValues({ ...values, project: e.target.value })}
+          onChange={(event) =>
+            setValues({ ...values, project: event.target.value })
+          }
         >
-          {PROJECTS.map((p) => (
-            <option key={p} value={p}>
-              {p}
+          {PROJECTS.map((project) => (
+            <option key={project} value={project}>
+              {project}
             </option>
           ))}
         </select>
@@ -92,8 +96,8 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
           placeholder="Hours"
           className={`${s.input} ${error.includes("hour") ? s.inputError : ""}`}
           value={values.hours}
-          onChange={(e) => {
-            onHourInputChange(e);
+          onChange={(event) => {
+            onHourInputChange(event);
           }}
         />
 
@@ -101,8 +105,8 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
           placeholder="Description"
           className={`${s.input} h-24 resize-none`}
           value={values.description}
-          onChange={(e) =>
-            setValues({ ...values, description: e.target.value })
+          onChange={(event) =>
+            setValues({ ...values, description: event.target.value })
           }
         />
 

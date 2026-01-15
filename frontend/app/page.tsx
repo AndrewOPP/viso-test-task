@@ -34,7 +34,6 @@ export default function Home() {
 
   const filteredEntries = entries.filter((entry: TimeEntry): boolean => {
     const entryDate = entry.date;
-
     if (filter.start && entryDate < filter.start) return false;
     if (filter.end && entryDate > filter.end) return false;
     return true;
