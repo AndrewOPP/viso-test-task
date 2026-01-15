@@ -20,12 +20,11 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
   ): Promise<void> => {
     event.preventDefault();
     setError("");
-
+    if (values.hours === "0") {
+      setError("Amount of hours must be not a 0");
+      return;
+    }
     if (!values.hours || !values.description) {
-      if (values.hours === 0) {
-        setError("Amount of hours must be not a 0");
-        return;
-      }
       setError("Please fill in all fields");
       return;
     }
@@ -51,13 +50,19 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
     const val = event.target.value;
-    const num = Number(val);
 
     if (val === "") {
       setValues({ ...values, hours: "" });
       return;
     }
-    if (num < 0 || num > 24 || val.length > 2) return;
+
+    if (!/^(0|[1-9]\d*)(\.\d*)?$/.test(val)) {
+      return;
+    }
+
+    const num = Number(val);
+
+    if (num < 0 || num > 24) return;
 
     setValues({ ...values, hours: val });
   };
@@ -91,8 +96,7 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
         </select>
 
         <input
-          type="number"
-          max="24"
+          type="text"
           placeholder="Hours"
           className={`${s.input} ${error.includes("hour") ? s.inputError : ""}`}
           value={values.hours}
@@ -103,7 +107,7 @@ export default function EntryForm({ onSuccess }: { onSuccess: () => void }) {
 
         <textarea
           placeholder="Description"
-          className={`${s.input} h-24 resize-none`}
+          className={`${s.input} h-24 resize-none `}
           value={values.description}
           onChange={(event) =>
             setValues({ ...values, description: event.target.value })
